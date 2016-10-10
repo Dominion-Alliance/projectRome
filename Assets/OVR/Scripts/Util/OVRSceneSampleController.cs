@@ -155,17 +155,18 @@ public class OVRSceneSampleController : MonoBehaviour
         if (Input.GetKeyDown(quitKey))
             Application.Quit();
 
-		if (Input.GetMouseButtonDown(0))
-		{
-			Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
-			RaycastHit hit;
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			if (Physics.Raycast(ray, out hit))
-			if (hit.collider != null)
-				hit.collider.enabled = false;
-				HealthBar healthBar = GetComponent<HealthBar>();
-				healthBar.SetLocation(hit.point);
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+                if (hit.collider != null)
+                { 
+                    HealthBar healthBar = GetComponent<HealthBar>();
+                    healthBar.SetLocation(hit.point);
+                }
 		}
 
 #endif
