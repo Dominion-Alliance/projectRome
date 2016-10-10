@@ -114,7 +114,7 @@ public class OVRSceneSampleController : MonoBehaviour
         // Make sure to hide cursor 
         if (Application.isEditor == false)
         {
-			Cursor.visible = false; 
+			Cursor.visible = true; 
 			Cursor.lockState = CursorLockMode.Locked;
         }
 
@@ -161,7 +161,7 @@ public class OVRSceneSampleController : MonoBehaviour
 
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, 100))
                 if (hit.collider != null)
                 { 
                     HealthBar healthBar = GetComponent<HealthBar>();
