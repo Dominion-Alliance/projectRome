@@ -164,8 +164,8 @@ public class OVRSceneSampleController : MonoBehaviour
 			if (Physics.Raycast(ray, out hit))
 			if (hit.collider != null)
 				hit.collider.enabled = false;
-				HealthBar healthBar = GetComponent<HealthBar>(HealthBar);
-				healthBar.setLocation(hit.point);
+				HealthBar healthBar = GetComponent<HealthBar>();
+				healthBar.SetLocation(hit.point);
 		}
 
 #endif
