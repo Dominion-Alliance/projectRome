@@ -178,6 +178,7 @@ public class OVRPlayerController : MonoBehaviour
 		}
 
 		UpdateMovement();
+        UpdateClick();
 
 		Vector3 moveDirection = Vector3.zero;
 
@@ -216,6 +217,23 @@ public class OVRPlayerController : MonoBehaviour
 		if (predictedXZ != actualXZ)
 			MoveThrottle += (actualXZ - predictedXZ) / (SimulationRate * Time.deltaTime);
 	}
+
+    public virtual void UpdateClick()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+                if (hit.collider != null)
+                {
+                    HealthBar healthBar = GetComponent<HealthBar>();
+                    healthBar.SetLocation(hit.point);
+                }
+        }
+    }
 
 	public virtual void UpdateMovement()
 	{

@@ -111,11 +111,11 @@ public class OVRSceneSampleController : MonoBehaviour
     /// </summary>
     void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Locked;
         // Make sure to hide cursor 
         if (Application.isEditor == false)
         {
-			Cursor.visible = false; 
-			Cursor.lockState = CursorLockMode.Locked;
         }
 
         // CameraController updates
@@ -154,20 +154,6 @@ public class OVRSceneSampleController : MonoBehaviour
         // Escape Application
         if (Input.GetKeyDown(quitKey))
             Application.Quit();
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector3 fwd = transform.TransformDirection(Vector3.forward);
-
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-                if (hit.collider != null)
-                { 
-                    HealthBar healthBar = GetComponent<HealthBar>();
-                    healthBar.SetLocation(hit.point);
-                }
-		}
 
 #endif
     }
