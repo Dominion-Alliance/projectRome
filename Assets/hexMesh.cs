@@ -60,6 +60,7 @@ public class hexMesh : MonoBehaviour
                 triangles[triOffset + 3] = z * vsize_x + x + 0;
                 triangles[triOffset + 4] = z * vsize_x + x + vsize_x + 1;
                 triangles[triOffset + 5] = z * vsize_x + x + 1;
+                
             }
         }
 
