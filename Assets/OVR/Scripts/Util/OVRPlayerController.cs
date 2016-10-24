@@ -28,6 +28,10 @@ using System.Collections.Generic;
 [RequireComponent(typeof(CharacterController))]
 public class OVRPlayerController : MonoBehaviour
 {
+    GameObject playerHealthBar;
+
+
+
 	/// <summary>
 	/// The rate acceleration during movement.
 	/// </summary>
@@ -229,8 +233,8 @@ public class OVRPlayerController : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
                 if (hit.collider != null)
                 {
-                    HealthBar healthBar = GetComponent<HealthBar>();
-                    healthBar.SetLocation(hit.point);
+                    GameObject target = GameObject.Find("localPlayerHealth");
+                    target.GetComponent<HealthBar>().SetLocation(hit.point);                    
                 }
         }
     }

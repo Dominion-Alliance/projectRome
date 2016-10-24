@@ -8,6 +8,11 @@ public class HealthBar : MonoBehaviour
     public int currentHealth = 100;                                   // The current health the player has.
 	public Transform  tran;
 
+    void start()
+    {
+        gameObject.tag = "localPlayerHealth";
+    }
+
     void Update()
     {
 
