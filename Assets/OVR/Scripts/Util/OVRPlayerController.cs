@@ -233,7 +233,7 @@ public class OVRPlayerController : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
                 if (hit.collider != null)
                 {
-                    GameObject target = GameObject.Find("localPlayerHealth");
+                    GameObject target = GameObject.FindGameObjectWithTag("localPlayerHealth");
                     target.GetComponent<HealthBar>().SetLocation(hit.point);                    
                 }
         }
