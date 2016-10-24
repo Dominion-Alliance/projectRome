@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System;
 
-//Credit to http://catlikecoding.com/unity/tutorials/hex-map-1/ for help and tutorial
+//Credit and thanks to http://catlikecoding.com/unity/tutorials/hex-map-1/ for help and tutorial
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 
