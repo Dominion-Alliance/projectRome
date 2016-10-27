@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012515528502}
   - 114: {fileID: 114000011500768220}
+  - 64: {fileID: 64000011448972630}
   m_Layer: 0
   m_Name: Hex Cell
   m_TagString: Untagged
@@ -40,6 +41,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!64 &64000011448972630
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012448276572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 0}
 --- !u!114 &114000011500768220
 MonoBehaviour:
   m_ObjectHideFlags: 1
