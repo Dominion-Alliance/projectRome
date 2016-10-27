@@ -3,8 +3,12 @@ using System.Collections;
 
 public class HexCell : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public HexCoordinates coordinates;
+
+    public Color color;
+
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
