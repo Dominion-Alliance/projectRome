@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class HealthBar : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class HealthBar : MonoBehaviour
     {
         // Reduce the current health by the damage amount.
         currentHealth += amount;
+        if (currentHealth > 100)
+        {
+            Exception ex = new Exception("cannot have health higher than 100");
+            throw ex;
+        }
 
     }
 
