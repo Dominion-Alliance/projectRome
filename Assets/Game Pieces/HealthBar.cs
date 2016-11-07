@@ -18,7 +18,8 @@ public class HealthBar : MonoBehaviour
     {
 
     }
-		
+	
+    //Throws exception if currentHealth is ever greater than 100.
     public void adjustHealth(int amount)
     {
         // Reduce the current health by the damage amount.

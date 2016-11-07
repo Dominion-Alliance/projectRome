@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.Assertions;
 
 public class Base : MonoBehaviour {
     public HealthBar healthBar;
@@ -18,12 +19,15 @@ public class Base : MonoBehaviour {
 	
 	}
 
+    //Asserts that the radius is set equal to r as a post condition
     public void levelUp() {
         level++;
         int r = level / 3;
         radius = r;
+        Assert.AreEqual(radius, r);
     }
 
+    //Tries to change the health of the healthBar, but catches exception should any exception be thrown by adjustHealth.
     public void changeHealth(int a) {
         try
         {
