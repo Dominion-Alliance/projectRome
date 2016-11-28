@@ -12,8 +12,10 @@ public class HexGrid : MonoBehaviour
 
     public int width = 6;
     public int height = 6;
-    public Color defaultColor = Color.white;
+    public Color grasslandColor = Color.white;
+    public Color waterColor = Color.blue;
     public Color touchedColor = Color.magenta;
+    System.Random rnd = new System.Random();
     Canvas gridCanvas;
 
     public HexCell cellPrefab;
@@ -54,7 +56,18 @@ public class HexGrid : MonoBehaviour
         cell.transform.SetParent(transform, false);
         cell.transform.localPosition = position;
         cell.coordinates = HexCoordinates.FromOffsetCoordinates(x, z);
-        cell.color = defaultColor;
+
+        //Random Number Generation
+        int cellType = rnd.Next(1, 3);
+        //////////////////////////
+        if (cellType == 1)
+        {
+            cell.color = grasslandColor;
+        }
+        else
+        {
+            cell.color = waterColor;
+        }
 
 
         Text label = Instantiate<Text>(cellLabelPrefab);
