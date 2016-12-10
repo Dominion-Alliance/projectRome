@@ -230,12 +230,12 @@ public class OVRPlayerController : MonoBehaviour
 
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-                if (hit.collider != null)
-                {
-                    GameObject target = GameObject.FindGameObjectWithTag("localPlayerHealth");
-                    target.GetComponent<HealthBar>().SetLocation(hit.point);                    
-                }
+            //if (Physics.Raycast(ray, out hit))
+            //    if (hit.collider != null)
+            //    {
+            //        GameObject target = GameObject.FindGameObjectWithTag("localPlayerHealth");
+            //        target.GetComponent<HealthBar>().SetLocation(hit.point);                    
+            //    }
         }
     }
 
