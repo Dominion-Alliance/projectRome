@@ -28,4 +28,18 @@ public struct HexCoordinates
         return X.ToString() + "\n" + Z.ToString();
     }
 
+    public static HexCoordinates FromPosition(Vector3 position)
+    {
+        float x = position.x / (HexMetrics.innerRadius * 2f);
+        float y = -x;
+        int iX = Mathf.RoundToInt(x);
+        int iY = Mathf.RoundToInt(y);
+        int iZ = Mathf.RoundToInt(-x - y);
+        if (iX + iY + iZ != 0)
+        {
+            Debug.LogWarning("rounding error!");
+        }
+        return new HexCoordinates(iX, iZ);
+    }
+
 }
