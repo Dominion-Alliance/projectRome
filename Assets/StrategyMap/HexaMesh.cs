@@ -4,12 +4,14 @@ using System.Collections.Generic;
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class HexaMesh : MonoBehaviour
 {
-
+    //Declarations:
     Mesh hexMesh;
     List<Vector3> vertices;
     List<int> triangles;
     MeshCollider meshCollider;
     List<Color> colors;
+    ////////////////
+
 
     void Awake()
     {

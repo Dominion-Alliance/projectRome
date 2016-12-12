@@ -9,20 +9,16 @@ using System;
 
 public class HexGrid : MonoBehaviour
 {
-
+    //Declarations (these are changed in the Unity Inspector, do not change here. values here are the default values)
     public int width = 6;
-    public int height = 6;
-    public Color grasslandColor = Color.white;
-    public Color waterColor = Color.blue;
-    public Color touchedColor = Color.magenta;
+    public int height = 6;    
+    ////////////////////////////////////////////
     System.Random rnd = new System.Random();
     Canvas gridCanvas;
 
     public HexCell cellPrefab;
     public Text cellLabelPrefab;
     HexaMesh hexMesh;
-
-
     HexCell[] cells;
 
     void Start()
@@ -62,15 +58,15 @@ public class HexGrid : MonoBehaviour
         //////////////////////////
         if (cellType == 1)
         {
-            cell.color = grasslandColor;
-            cell.type = Type.grassland;
+            cell.color = HexMeshDeclarations.terrainColor.grasslandColor;
+            cell.type = HexMeshDeclarations.terrainType.grassland;
         }
         else
         {
-            cell.color = waterColor;
-            cell.type = Type.water;
+            cell.color = HexMeshDeclarations.terrainColor.waterColor;
+            cell.type = HexMeshDeclarations.terrainType.water;
         }
-
+        cell.owner = gameStart.unowned;
 
         Text label = Instantiate<Text>(cellLabelPrefab);
         label.rectTransform.SetParent(gridCanvas.transform, false);
@@ -105,7 +101,7 @@ public class HexGrid : MonoBehaviour
         Debug.Log("touched at " + coordinates.ToString());
         int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
         HexCell cell = cells[index];
-        cell.color = touchedColor;
+        cell.color = HexMeshDeclarations.terrainColor.touchedColor;
         hexMesh.Triangulate(cells);
 
     }

@@ -7,7 +7,9 @@ public class HexCell : MonoBehaviour {
 
     public Color color;
 
-    public Type type;
+    public HexMeshDeclarations.terrainType type;
+
+    public localPlayer owner;
 
 
     // Use this for initialization
@@ -16,7 +18,15 @@ public class HexCell : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+	void Update ()
+    {
+	    if (type == HexMeshDeclarations.terrainType.grassland)
+        {
+            color = HexMeshDeclarations.terrainColor.grasslandColor;
+        }
+        if (type == HexMeshDeclarations.terrainType.water)
+        {
+            color = HexMeshDeclarations.terrainColor.waterColor;
+        }
+    }
 }
